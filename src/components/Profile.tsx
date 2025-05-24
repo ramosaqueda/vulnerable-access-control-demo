@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import { AuthContext } from '../App';
 import { getUserById, updateUser, User } from '../services/api';
 
+
 const Profile: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { user: currentUser } = useContext(AuthContext);

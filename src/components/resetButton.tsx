@@ -8,7 +8,6 @@ const ResetButton: React.FC = () => {
 
   const handleReset = async () => {
     setIsResetting(true);
-    
     try {
       // Resetear la base de datos
       resetDatabase();
