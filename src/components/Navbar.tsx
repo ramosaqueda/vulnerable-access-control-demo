@@ -1,4 +1,4 @@
-// src/components/Navbar.tsx - Versión CTF (pistas sutiles)
+// src/components/Navbar.tsx - Versión CTF en Español
 import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../App';
@@ -31,44 +31,41 @@ const Navbar: React.FC = () => {
                 to="/dashboard"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive('/dashboard')}`}
               >
-                📊 Dashboard
+                📊 Tablero
               </Link>
 
               <Link
                 to={`/profile/${user.id}`}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive(`/profile/${user.id}`)}`}
               >
-                👤 Mi perfil
+                👤 Mi Perfil
               </Link>
 
-              {/* Pista sutil: Link disponible para todos pero con indicador */}
-              <Link
-                to="/admin"
-                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive('/admin')} ${
-                  user.role !== 'admin' ? 'opacity-75' : ''
-                }`}
-                title={user.role !== 'admin' ? 'Administrative functions' : 'Admin Panel'}
-              >
-                ⚙️ Administración
-                {user.role !== 'admin' && (
-                  <span className="ml-1 text-xs bg-yellow-500 px-1 rounded opacity-75">?</span>
-                )}
-              </Link>
+              {/* Solo mostrar para administradores */}
+              {user.role === 'admin' && (
+                <Link
+                  to="/admin"
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive('/admin')}`}
+                  title="Panel de Administración"
+                >
+                  ⚙️ Administración
+                </Link>
+              )}
 
               <Link
                 to="/system"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive('/system')}`}
-                title="System information and diagnostics"
+                title="Información y diagnósticos del sistema"
               >
-                🖥️  Info sistema
+                🖥️ Info Sistema
               </Link>
 
               <Link
                 to="/demo"
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive('/demo')} bg-purple-600 hover:bg-purple-700`}
-                title="Security testing tools"
+                title="Herramientas de pruebas de seguridad"
               >
-                🔧 Heeramientas de seguridad
+                🔧 Herramientas de Seguridad
               </Link>
             </div>
           </div>
@@ -80,16 +77,16 @@ const Navbar: React.FC = () => {
               <div className={`text-xs ${
                 user.role === 'admin' ? 'text-green-200' : 'text-blue-200'
               }`}>
-                {user.role === 'admin' ? '👑 Administrator' : '👤 Employee'}
+                {user.role === 'admin' ? '👑 Administrador' : '👤 Empleado'}
               </div>
             </div>
 
             <button
               onClick={logout}
               className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
-              title="Sign out"
+              title="Cerrar sesión"
             >
-              Sign Out
+              Cerrar Sesión
             </button>
           </div>
         </div>
@@ -101,7 +98,7 @@ const Navbar: React.FC = () => {
               to="/dashboard"
               className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/dashboard')}`}
             >
-              📊 Dashboard
+              📊 Tablero
             </Link>
             <Link
               to={`/profile/${user.id}`}
@@ -109,17 +106,20 @@ const Navbar: React.FC = () => {
             >
               👤 Mi Perfil
             </Link>
-            <Link
-              to="/admin"
-              className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/admin')}`}
-            >
-              ⚙️ Administración
-            </Link>
+            {/* Solo mostrar para administradores */}
+            {user.role === 'admin' && (
+              <Link
+                to="/admin"
+                className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/admin')}`}
+              >
+                ⚙️ Administración
+              </Link>
+            )}
             <Link
               to="/system"
               className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/system')}`}
             >
-              🖥️ Info sistema
+              🖥️ Info Sistema
             </Link>
             <Link
               to="/demo"
@@ -134,8 +134,8 @@ const Navbar: React.FC = () => {
       {/* Status bar con pistas sutiles */}
       <div className="bg-blue-700 text-center py-1">
         <p className="text-xs">
-          📋 Session: <strong>{user.username}</strong> (ID: {user.id}) | 
-          🔑 Auth: Token-based | 
+          📋 Sesión: <strong>{user.username}</strong> (ID: {user.id}) | 
+          🔑 Auth: Basada en Token | 
           💾 Almacenamiento Local
           {user.role !== 'admin' && (
             <span className="ml-2 text-yellow-200">
