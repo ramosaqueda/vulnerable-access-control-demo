@@ -10,9 +10,9 @@ let usersDatabase: User[] = [
     password: 'admin123', // En producción NUNCA almacenar passwords en plaintext
     role: 'admin',
     profile: {
-      fullName: 'System Administrator',
-      phone: '+1-555-0001',
-      department: 'IT Security',
+      fullName: 'Administrador de sistema',
+      phone: '+5696610323',
+      department: 'Oficial de Seguridad',
       salary: 120000,
       ssn: '123-45-6789'
     },
@@ -20,13 +20,13 @@ let usersDatabase: User[] = [
   },
   {
     id: 2,
-    username: 'john',
+    username: 'jaranguiz',
     email: 'john@demo.com',
     password: 'user123',
     role: 'user',
     profile: {
-      fullName: 'John Doe',
-      phone: '+1-555-0002',
+      fullName: 'Juan Aranguiz Salas',
+      phone: '+56932123422',
       department: 'Marketing',
       salary: 65000,
       ssn: '987-65-4321'
@@ -35,14 +35,14 @@ let usersDatabase: User[] = [
   },
   {
     id: 3,
-    username: 'jane',
-    email: 'jane@demo.com',
+    username: 'james',
+    email: 'james@demo.com',
     password: 'user123',
     role: 'user',
     profile: {
-      fullName: 'Jane Smith',
-      phone: '+1-555-0003',
-      department: 'Sales',
+      fullName: 'James Blond Von Gonzalez',
+      phone: '+56973751234',
+      department: 'Ventas',
       salary: 70000,
       ssn: '456-78-9012'
     },
@@ -50,14 +50,14 @@ let usersDatabase: User[] = [
   },
   {
     id: 4,
-    username: 'bob',
-    email: 'bob@demo.com',
+    username: 'rob',
+    email: 'robeesponja@demo.com',
     password: 'user123',
     role: 'user',
     profile: {
-      fullName: 'Bob Wilson',
-      phone: '+1-555-0004',
-      department: 'HR',
+      fullName: 'Rob Spon Ja',
+      phone: '+56943848472',
+      department: 'IT',
       salary: 60000,
       ssn: '789-01-2345'
     },

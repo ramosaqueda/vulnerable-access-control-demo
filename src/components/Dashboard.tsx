@@ -88,23 +88,23 @@ const Dashboard: React.FC = () => {
       {/* Employee Directory Section - Pista sutil */}
       <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
         <h2 className="text-xl font-bold text-blue-600 mb-4">
-          👥 Employee Directory
+          👥 Directorio de Colaboradores
         </h2>
         <p className="text-gray-600 mb-4">
-          Quick access to colleague profiles. Your employee ID is #{user.id}.
+          Acceso rápido a los perfiles de tus compañeros, tu ID de colaborador #{user.id}.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[1, 2, 3, 4].map(id => (
             <Link
               key={id}
-              to={`/profile/${id}`}
+              to={`/noesaqui/${id}`}
               className={`p-3 rounded border text-center transition-colors hover:shadow-md ${
                 id === user.id 
                   ? 'bg-green-100 border-green-300 text-green-700' 
                   : 'bg-gray-100 border-gray-300 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              <div className="font-medium">Employee #{id}</div>
+              <div className="font-medium">Colaborador #{id}</div>
               <div className="text-sm">
                 {id === user.id ? '👤 Your Profile' : '👥 Colleague'}
               </div>
@@ -112,17 +112,17 @@ const Dashboard: React.FC = () => {
           ))}
         </div>
         <div className="text-xs text-gray-500 mt-3">
-          💡 Tip: Employee IDs are sequential for easy navigation
+          💡 Tip: Los identificadores de los empleados son secuenciales para facilitar la navegación.
         </div>
       </div>
 
       {/* Management Tools Section - Pista sutil */}
       <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-orange-500">
         <h2 className="text-xl font-bold text-orange-600 mb-4">
-          🔧 Management Tools
+          🔧 Herramientas de Administración
         </h2>
         <p className="text-gray-600 mb-4">
-          Access advanced company tools and employee management features.
+         Acceda a herramientas avanzadas de la empresa y funciones de gestión de empleados.
         </p>
         
         <button
@@ -137,7 +137,7 @@ const Dashboard: React.FC = () => {
           <div className="p-4 bg-red-50 border border-red-200 rounded">
             <p className="text-red-700">❌ Access denied: {error}</p>
             <p className="text-sm text-gray-600 mt-1">
-              💭 "Interesting... what if I had different permissions?"
+              💭 "Interesante... ¿qué pasaría si tuviera diferentes permisos?"
             </p>
           </div>
         )}
@@ -146,7 +146,7 @@ const Dashboard: React.FC = () => {
           <div className="p-4 bg-blue-50 border border-blue-200 rounded">
             <h3 className="font-bold text-blue-700 mb-2">📈 Employee Statistics</h3>
             <p className="text-blue-600 mb-3">
-              Successfully loaded data for {allUsers.length} employees
+              Los datos se cargaron correctamente para {allUsers.length} colaboradores
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-48 overflow-y-auto">
               {allUsers.map(u => (
@@ -163,7 +163,7 @@ const Dashboard: React.FC = () => {
               ))}
             </div>
             <div className="text-xs text-gray-500 mt-2">
-              📝 Note: This data should probably be restricted...
+              📝 Nota mental: Probablemente estos datos deberían restringirse...
             </div>
           </div>
         )}
@@ -172,55 +172,55 @@ const Dashboard: React.FC = () => {
       {/* Information Panel - Pistas sutiles */}
       <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-purple-500">
         <h2 className="text-xl font-bold text-purple-600 mb-4">
-          📋 Your Session Information
+          📋 Tu información de Session
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="font-semibold mb-2">👤 Current User:</h3>
+            <h3 className="font-semibold mb-2">👤 Usuario Actual</h3>
             <div className="bg-gray-50 p-3 rounded text-sm space-y-1">
               <div><strong>ID:</strong> {user.id}</div>
               <div><strong>Username:</strong> {user.username}</div>
               <div><strong>Email:</strong> {user.email}</div>
-              <div><strong>Role:</strong> {user.role}</div>
+              <div><strong>Rol:</strong> {user.role}</div>
             </div>
           </div>
           <div>
-            <h3 className="font-semibold mb-2">🔑 Session Details:</h3>
+            <h3 className="font-semibold mb-2">🔑 Detalle de Sesión :</h3>
             <div className="bg-gray-50 p-3 rounded text-sm space-y-1">
-              <div><strong>Storage:</strong> Browser Local Storage</div>
-              <div><strong>Token Type:</strong> JWT (JSON Web Token)</div>
-              <div><strong>Expires:</strong> 24 hours</div>
-              <div><strong>Inspect:</strong> DevTools → Application</div>
+              <div><strong>Almacenamiento:</strong> Browser Local Storage</div>
+              <div><strong>Tipo de Token:</strong> JWT (JSON Web Token)</div>
+              <div><strong>Expiración:</strong> 24 hours</div>
+              <div><strong>Inspeccionar en :</strong> DevTools → Application</div>
             </div>
           </div>
         </div>
         <div className="mt-4 text-xs text-gray-500">
-          💭 "I wonder what information is stored in that token..."
+          💭 "I wonder what information is stored in that token... ;)"
         </div>
       </div>
 
       {/* Hints Section */}
       <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-6">
         <h2 className="text-xl font-bold text-yellow-800 mb-4">
-          🧩 Daily Security Puzzle
+          🧩Rompecabezas de seguridad diario
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
           <div className="bg-white p-3 rounded shadow-sm">
-            <h3 className="font-semibold text-yellow-700 mb-2">🔍 Explorer's Challenge:</h3>
+            <h3 className="font-semibold text-yellow-700 mb-2">🔍 Desafío del explorador:</h3>
             <p className="text-yellow-600">
-              "Can you find information about your colleagues without their permission?"
+              "¿Puedes encontrar información sobre tus colegas sin su permiso?"
             </p>
           </div>
           <div className="bg-white p-3 rounded shadow-sm">
-            <h3 className="font-semibold text-orange-700 mb-2">🚀 Privilege Quest:</h3>
+            <h3 className="font-semibold text-orange-700 mb-2">🚀 Búsqueda de privilegios:</h3>
             <p className="text-orange-600">
-              "What happens when boundaries don't exist?"
+              "¿Qué pasa cuando no existen límites?"
             </p>
           </div>
           <div className="bg-white p-3 rounded shadow-sm">
-            <h3 className="font-semibold text-red-700 mb-2">🗝️ Secret Seeker:</h3>
+            <h3 className="font-semibold text-red-700 mb-2">🗝️ Buscador secreto:</h3>
             <p className="text-red-600">
-              "Every system has its hidden configuration..."
+              "Cada sistema tiene su configuración oculta..."
             </p>
           </div>
         </div>

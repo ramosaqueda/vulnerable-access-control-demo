@@ -112,12 +112,12 @@ const Profile: React.FC = () => {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold">
-              {isOwnProfile ? '👤 My Profile' : `👥 Perfil de ${profileUser.username}' `}
+              {isOwnProfile ? '👤 Mi Perfil' : `👥 Perfil de ${profileUser.username}' `}
             </h1>
             <p className={isOwnProfile ? 'text-green-700' : 'text-orange-700'}>
               {isOwnProfile 
-                ? 'You are viewing your own profile' 
-                : `Viewing employee profile (ID: ${profileUser.id})`}
+                ? 'Estas viendo tu perfil, asi debería ser, no crees?' 
+                : `Visitando el perfil(ID: ${profileUser.id})`}
             </p>
             {!isOwnProfile && (
               <p className="text-xs text-gray-600 mt-1">
@@ -126,7 +126,7 @@ const Profile: React.FC = () => {
             )}
           </div>
           <div className="text-right">
-            <div className="text-sm text-gray-600">Employee ID:</div>
+            <div className="text-sm text-gray-600">ID de colaborador :</div>
             <div className="text-xl font-bold">{profileUser.id}</div>
           </div>
         </div>
@@ -135,7 +135,7 @@ const Profile: React.FC = () => {
       {/* Profile Información */}
       <div className="bg-white rounded-lg shadow-md p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold">Employee Información</h2>
+          <h2 className="text-xl font-bold">Información del Colaboradorn</h2>
           <div className="flex space-x-2">
             {!isEditing ? (
               <button
@@ -150,7 +150,7 @@ const Profile: React.FC = () => {
                 onClick={() => setIsEditing(false)}
                 className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded transition-colors"
               >
-                ❌ Cancel
+                ❌ Cancelar
               </button>
             )}
           </div>
@@ -160,8 +160,7 @@ const Profile: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Employee ID
-            </label>
+              ID Colaborador            </label>
             <div className="p-3 bg-gray-100 rounded border">
               {profileUser.id}
             </div>
@@ -184,7 +183,7 @@ const Profile: React.FC = () => {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Role
+              Rol
             </label>
             <div className={`p-3 rounded border ${
               profileUser.role === 'admin' 

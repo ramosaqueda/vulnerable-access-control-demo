@@ -1,4 +1,4 @@
-// src/components/SystemInfo.tsx - Versión CTF (pistas sutiles)
+// src/components/SystemInfo.tsx - Versión CTF en Español
 import React, { useState, useEffect } from 'react';
 import { getSystemInfo, SystemInfo as SystemInfoType, decodeCurrentToken } from '../services/api';
 
@@ -33,7 +33,7 @@ const SystemInfo: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center p-8">
-        <div className="text-xl">Loading system diagnostics...</div>
+        <div className="text-xl">Cargando diagnóstico del sistema...</div>
       </div>
     );
   }
@@ -41,16 +41,16 @@ const SystemInfo: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h1 className="text-2xl font-bold mb-4">🖥️ System Information & Diagnostics</h1>
+        <h1 className="text-2xl font-bold mb-4">🖥️ Información del Sistema y Diagnósticos</h1>
         
         <div className="bg-blue-50 border border-blue-200 p-4 rounded mb-6">
-          <h3 className="font-bold text-blue-800 mb-2">📊 System Health Dashboard</h3>
+          <h3 className="font-bold text-blue-800 mb-2">📊 Panel de Estado del Sistema</h3>
           <p className="text-blue-700">
-            Welcome to the system information panel. Here you can view current system status, 
-            configuration details, and diagnostic information.
+            Bienvenido al panel de información del sistema. Aquí puedes ver el estado actual del sistema, 
+            detalles de configuración e información de diagnóstico.
           </p>
           <p className="text-blue-600 text-sm mt-2">
-            💡 This information is typically restricted to system administrators
+            💡 Esta información normalmente está restringida a administradores del sistema
           </p>
         </div>
 
@@ -65,27 +65,27 @@ const SystemInfo: React.FC = () => {
             {/* Basic System Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-gray-50 p-4 rounded border">
-                <h3 className="font-bold mb-3 text-gray-800">🖥️ Server Environment</h3>
+                <h3 className="font-bold mb-3 text-gray-800">🖥️ Entorno del Servidor</h3>
                 <div className="space-y-2 text-sm">
-                  <div><strong>Operating System:</strong> {systemInfo.server}</div>
-                  <div><strong>Database:</strong> {systemInfo.database}</div>
-                  <div><strong>Total Users:</strong> {systemInfo.users_count}</div>
-                  <div><strong>Last Backup:</strong> {systemInfo.last_backup}</div>
-                  <div><strong>Debug Mode:</strong> 
+                  <div><strong>Sistema Operativo:</strong> {systemInfo.server}</div>
+                  <div><strong>Base de Datos:</strong> {systemInfo.database}</div>
+                  <div><strong>Total de Usuarios:</strong> {systemInfo.users_count}</div>
+                  <div><strong>Último Respaldo:</strong> {systemInfo.last_backup}</div>
+                  <div><strong>Modo Debug:</strong> 
                     <span className={systemInfo.debug_mode ? 'text-orange-600' : 'text-green-600'}>
-                      {systemInfo.debug_mode ? ' Enabled ⚠️' : ' Disabled ✅'}
+                      {systemInfo.debug_mode ? ' Habilitado ⚠️' : ' Deshabilitado ✅'}
                     </span>
                   </div>
                 </div>
               </div>
 
               <div className="bg-green-50 p-4 rounded border">
-                <h3 className="font-bold mb-3 text-green-800">👑 Administrative Access</h3>
+                <h3 className="font-bold mb-3 text-green-800">👑 Acceso Administrativo</h3>
                 <div className="space-y-2 text-sm">
-                  <div><strong>Admin Users:</strong> {systemInfo.admin_users.join(', ')}</div>
-                  <div><strong>System Access:</strong> Multi-level</div>
-                  <div><strong>Security Level:</strong> Standard</div>
-                  <div><strong>Audit Logging:</strong> Basic</div>
+                  <div><strong>Usuarios Admin:</strong> {systemInfo.admin_users.join(', ')}</div>
+                  <div><strong>Acceso al Sistema:</strong> Multinivel</div>
+                  <div><strong>Nivel de Seguridad:</strong> Estándar</div>
+                  <div><strong>Registro de Auditoría:</strong> Básico</div>
                 </div>
               </div>
             </div>
@@ -97,52 +97,52 @@ const SystemInfo: React.FC = () => {
                 className="w-full p-4 text-left bg-gray-50 hover:bg-gray-100 rounded-t-lg transition-colors"
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="font-bold text-gray-800">⚙️ Advanced Configuration</h3>
+                  <h3 className="font-bold text-gray-800">⚙️ Configuración Avanzada</h3>
                   <span className="text-gray-500">
-                    {showAdvanced ? '▼' : '▶'} Click to {showAdvanced ? 'hide' : 'reveal'}
+                    {showAdvanced ? '▼' : '▶'} Clic para {showAdvanced ? 'ocultar' : 'revelar'}
                   </span>
                 </div>
                 <p className="text-sm text-gray-600 mt-1">
-                  System internals and configuration details
+                  Configuración interna del sistema y detalles técnicos
                 </p>
               </button>
               
               {showAdvanced && (
                 <div className="p-4 border-t border-gray-200">
                   <div className="bg-orange-50 border border-orange-200 p-4 rounded mb-4">
-                    <h4 className="font-bold text-orange-800 mb-2">🔐 Security Configuration</h4>
+                    <h4 className="font-bold text-orange-800 mb-2">🔐 Configuración de Seguridad</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                       <div>
-                        <strong className="text-orange-700">Authentication Method:</strong>
+                        <strong className="text-orange-700">Método de Autenticación:</strong>
                         <div className="text-orange-600">JSON Web Tokens (JWT)</div>
                       </div>
                       <div>
-                        <strong className="text-orange-700">Token Storage:</strong>
-                        <div className="text-orange-600">Client-side localStorage</div>
+                        <strong className="text-orange-700">Almacenamiento de Token:</strong>
+                        <div className="text-orange-600">localStorage del cliente</div>
                       </div>
                       <div>
-                        <strong className="text-orange-700">Session Duration:</strong>
-                        <div className="text-orange-600">24 hours</div>
+                        <strong className="text-orange-700">Duración de Sesión:</strong>
+                        <div className="text-orange-600">24 horas</div>
                       </div>
                       <div>
-                        <strong className="text-orange-700">Encryption Key:</strong>
+                        <strong className="text-orange-700">Clave de Cifrado:</strong>
                         <div className="text-orange-600 font-mono text-xs break-all">
                           {systemInfo.secret_key}
                         </div>
                       </div>
                     </div>
                     <div className="mt-3 text-xs text-orange-600 italic">
-                      💭 "This looks like it might be important information..."
+                      💭 "Esto parece información que podría ser importante..."
                     </div>
                   </div>
 
                   <div className="bg-purple-50 border border-purple-200 p-4 rounded">
-                    <h4 className="font-bold text-purple-800 mb-2">🔧 Development Settings</h4>
+                    <h4 className="font-bold text-purple-800 mb-2">🔧 Configuración de Desarrollo</h4>
                     <div className="text-sm space-y-1">
-                      <div><strong>Environment:</strong> Development Mode</div>
-                      <div><strong>Error Reporting:</strong> Verbose</div>
-                      <div><strong>CORS Policy:</strong> Permissive</div>
-                      <div><strong>Rate Limiting:</strong> Disabled</div>
+                      <div><strong>Entorno:</strong> Modo de Desarrollo</div>
+                      <div><strong>Reporte de Errores:</strong> Detallado</div>
+                      <div><strong>Política CORS:</strong> Permisiva</div>
+                      <div><strong>Limitación de Tasa:</strong> Deshabilitada</div>
                     </div>
                   </div>
                 </div>
@@ -154,9 +154,9 @@ const SystemInfo: React.FC = () => {
         {/* Token Analysis Section */}
         {tokenInfo && (
           <div className="bg-indigo-50 border border-indigo-200 p-4 rounded">
-            <h3 className="font-bold mb-3 text-indigo-800">🎫 Current Session Token</h3>
+            <h3 className="font-bold mb-3 text-indigo-800">🎫 Token de Sesión Actual</h3>
             <p className="text-indigo-700 text-sm mb-3">
-              Your authentication token contains the following information:
+              Tu token de autenticación contiene la siguiente información:
             </p>
             <div className="bg-white p-3 rounded border">
               <pre className="text-xs overflow-x-auto text-indigo-900">
@@ -164,57 +164,57 @@ const SystemInfo: React.FC = () => {
               </pre>
             </div>
             <div className="mt-3 text-xs text-indigo-600 space-y-1">
-              <div>💡 This token is stored in your browser's localStorage</div>
-              <div>🔍 Open DevTools → Application → Local Storage to see it</div>
-              <div>🤔 Notice any interesting patterns in the token structure?</div>
+              <div>💡 Este token está almacenado en el localStorage de tu navegador</div>
+              <div>🔍 Abre DevTools → Aplicación → Local Storage para verlo</div>
+              <div>🤔 ¿Notas algún patrón interesante en la estructura del token?</div>
             </div>
           </div>
         )}
 
         {/* Security Research Panel */}
         <div className="bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 rounded-lg p-6">
-          <h3 className="font-bold text-red-800 mb-3">🔬 Security Research Observations</h3>
+          <h3 className="font-bold text-red-800 mb-3">🔬 Observaciones de Investigación de Seguridad</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div className="space-y-2">
-              <h4 className="font-semibold text-red-700">Information Disclosure:</h4>
+              <h4 className="font-semibold text-red-700">Divulgación de Información:</h4>
               <ul className="text-red-600 space-y-1 text-xs">
-                <li>• System configuration exposed to all users</li>
-                <li>• Cryptographic secrets visible in interface</li>
-                <li>• Admin user enumeration possible</li>
-                <li>• Debug mode enables verbose error messages</li>
+                <li>• Configuración del sistema expuesta a todos los usuarios</li>
+                <li>• Secretos criptográficos visibles en la interfaz</li>
+                <li>• Enumeración de usuarios administradores posible</li>
+                <li>• Modo debug habilita mensajes de error detallados</li>
               </ul>
             </div>
             
             <div className="space-y-2">
-              <h4 className="font-semibold text-red-700">Attack Vectors:</h4>
+              <h4 className="font-semibold text-red-700">Vectores de Ataque:</h4>
               <ul className="text-red-600 space-y-1 text-xs">
-                <li>• JWT secret extraction for token forging</li>
-                <li>• Client-side token storage vulnerability</li>
-                <li>• Administrative interface enumeration</li>
-                <li>• Development settings in production</li>
+                <li>• Extracción de secreto JWT para falsificación de tokens</li>
+                <li>• Vulnerabilidad de almacenamiento de tokens del lado cliente</li>
+                <li>• Enumeración de interfaz administrativa</li>
+                <li>• Configuraciones de desarrollo en producción</li>
               </ul>
             </div>
           </div>
 
           <div className="mt-4 p-3 bg-red-100 rounded">
-            <h4 className="font-semibold text-red-800 mb-2">🎯 Research Challenge</h4>
+            <h4 className="font-semibold text-red-800 mb-2">🎯 Desafío de Investigación</h4>
             <p className="text-red-700 text-sm">
-              "Now that you have the JWT secret key, what could a security researcher do with this information? 
-              Think about token manipulation and privilege escalation possibilities..."
+              "Ahora que tienes la clave secreta JWT, ¿qué podría hacer un investigador de seguridad con esta información? 
+              Piensa en las posibilidades de manipulación de tokens y escalada de privilegios..."
             </p>
           </div>
         </div>
 
         {/* CTF Tools */}
         <div className="bg-gray-100 border border-gray-300 rounded-lg p-4">
-          <h3 className="font-bold text-gray-800 mb-3">🛠️ Security Testing Tools</h3>
+          <h3 className="font-bold text-gray-800 mb-3">🛠️ Herramientas de Pruebas de Seguridad</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="bg-white p-3 rounded border">
-              <h4 className="font-semibold text-blue-700 mb-2">🔍 Token Decoder</h4>
+              <h4 className="font-semibold text-blue-700 mb-2">🔍 Decodificador de Tokens</h4>
               <p className="text-sm text-gray-600 mb-2">
-                Decode and analyze JWT tokens
+                Decodifica y analiza tokens JWT
               </p>
               <a 
                 href="https://jwt.io" 
@@ -222,39 +222,39 @@ const SystemInfo: React.FC = () => {
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 text-sm underline"
               >
-                Open jwt.io →
+                Abrir jwt.io →
               </a>
             </div>
             
             <div className="bg-white p-3 rounded border">
               <h4 className="font-semibold text-green-700 mb-2">🌐 DevTools</h4>
               <p className="text-sm text-gray-600 mb-2">
-                Browser developer tools for inspection
+                Herramientas de desarrollador del navegador para inspección
               </p>
               <button 
-                onClick={() => alert('Press F12 or right-click and select "Inspect Element"')}
+                onClick={() => alert('Presiona F12 o clic derecho y selecciona "Inspeccionar elemento"')}
                 className="text-green-600 hover:text-green-800 text-sm underline"
               >
-                How to open →
+                Cómo abrir →
               </button>
             </div>
             
             <div className="bg-white p-3 rounded border">
-              <h4 className="font-semibold text-purple-700 mb-2">📡 Network Analysis</h4>
+              <h4 className="font-semibold text-purple-700 mb-2">📡 Análisis de Red</h4>
               <p className="text-sm text-gray-600 mb-2">
-                Monitor API requests and responses
+                Monitorea peticiones y respuestas de API
               </p>
               <button 
-                onClick={() => alert('Open DevTools → Network tab, then interact with the application')}
+                onClick={() => alert('Abre DevTools → pestaña Network, luego interactúa con la aplicación')}
                 className="text-purple-600 hover:text-purple-800 text-sm underline"
               >
-                Learn more →
+                Aprender más →
               </button>
             </div>
           </div>
 
           <div className="mt-4 text-xs text-gray-500 italic">
-            "The best security researchers use every tool at their disposal..."
+            "Los mejores investigadores de seguridad usan todas las herramientas a su disposición..."
           </div>
         </div>
       </div>

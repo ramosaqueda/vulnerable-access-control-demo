@@ -13,9 +13,9 @@ const Login: React.FC = () => {
   // Usuarios disponibles (pista sutil)
   const availableAccounts = [
     { username: 'admin', role: 'System Administrator', hint: 'Has the keys to the kingdom' },
-    { username: 'john', role: 'Marketing Specialist', hint: 'Always curious about his colleagues' },
-    { username: 'jane', role: 'Sales Representative', hint: 'Protective of her personal data' },
-    { username: 'bob', role: 'HR Manager', hint: 'Knows everyone\'s secrets' }
+    { username: 'jaranguiz', role: 'El especialista en Marketing ', hint: 'Always curious about his colleagues' },
+    { username: 'james', role: 'El hombre de las ventas', hint: 'Protective of her personal data' },
+    { username: 'rob', role: 'IT, Odia Microsoft, la terminal es su amiga, ', hint: 'Knows everyone\'s secrets' }
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -42,7 +42,7 @@ const Login: React.FC = () => {
     <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
       <div className="text-center mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Mandrake SecureCorpⓇ Portal</h1>
-        <p className="text-gray-600 mt-2">Employee Access System v2.1</p>
+        <p className="text-gray-600 mt-2">sistema de colaboradores v2.1</p>
         <div className="text-xs text-gray-400 mt-1">
           🔒  Seguridad de nivel empresarial: miles de usuarios confían en ella
         </div>

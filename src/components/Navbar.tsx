@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
                 to={`/profile/${user.id}`}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive(`/profile/${user.id}`)}`}
               >
-                👤 My Profile
+                👤 Mi perfil
               </Link>
 
               {/* Pista sutil: Link disponible para todos pero con indicador */}
@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
                 }`}
                 title={user.role !== 'admin' ? 'Administrative functions' : 'Admin Panel'}
               >
-                ⚙️ Management
+                ⚙️ Administración
                 {user.role !== 'admin' && (
                   <span className="ml-1 text-xs bg-yellow-500 px-1 rounded opacity-75">?</span>
                 )}
@@ -60,7 +60,7 @@ const Navbar: React.FC = () => {
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive('/system')}`}
                 title="System information and diagnostics"
               >
-                🖥️ System Info
+                🖥️  Info sistema
               </Link>
 
               <Link
@@ -68,7 +68,7 @@ const Navbar: React.FC = () => {
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive('/demo')} bg-purple-600 hover:bg-purple-700`}
                 title="Security testing tools"
               >
-                🔧 Security Tools
+                🔧 Heeramientas de seguridad
               </Link>
             </div>
           </div>
@@ -107,25 +107,25 @@ const Navbar: React.FC = () => {
               to={`/profile/${user.id}`}
               className={`block px-3 py-2 rounded-md text-base font-medium ${isActive(`/profile/${user.id}`)}`}
             >
-              👤 My Profile
+              👤 Mi Perfil
             </Link>
             <Link
               to="/admin"
               className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/admin')}`}
             >
-              ⚙️ Management
+              ⚙️ Administración
             </Link>
             <Link
               to="/system"
               className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/system')}`}
             >
-              🖥️ System Info
+              🖥️ Info sistema
             </Link>
             <Link
               to="/demo"
               className={`block px-3 py-2 rounded-md text-base font-medium ${isActive('/demo')} bg-purple-600`}
             >
-              🔧 Security Tools
+              🔧 Herramientas Seg.
             </Link>
           </div>
         </div>
@@ -136,10 +136,10 @@ const Navbar: React.FC = () => {
         <p className="text-xs">
           📋 Session: <strong>{user.username}</strong> (ID: {user.id}) | 
           🔑 Auth: Token-based | 
-          💾 Stored locally
+          💾 Almacenamiento Local
           {user.role !== 'admin' && (
             <span className="ml-2 text-yellow-200">
-              💭 "What if I had more privileges?"
+              💭 "¿Qué pasaría si tuviera más privilegios?"
             </span>
           )}
         </p>

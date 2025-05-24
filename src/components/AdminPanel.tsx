@@ -30,7 +30,7 @@ const AdminPanel: React.FC = () => {
     if (window.confirm(`Delete employee ${username}? This action cannot be undone.`)) {
       try {
         await deleteUser(id);
-        setActionMessage(`Employee ${username} removed from system`);
+        setActionMessage(`Colaborador ${username} removido del sistema`);
         loadUsers();
       } catch (err: any) {
         setError(err.message);
@@ -41,7 +41,7 @@ const AdminPanel: React.FC = () => {
   const handleRoleChange = async (id: number, newRole: string, username: string) => {
     try {
       await updateUserRole(id, newRole);
-      setActionMessage(`Employee ${username} role updated to ${newRole}`);
+      setActionMessage(`Colaborador ${username} rol actualizado a ${newRole}`);
       loadUsers();
     } catch (err: any) {
       setError(err.message);
@@ -51,7 +51,7 @@ const AdminPanel: React.FC = () => {
   if (loading) {
     return (
       <div className="flex justify-center p-8">
-        <div className="text-xl">Loading management interface...</div>
+        <div className="text-xl">Cargando management interface...</div>
       </div>
     );
   }
@@ -62,10 +62,10 @@ const AdminPanel: React.FC = () => {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-2xl font-bold text-gray-900">
-              ⚙️ Employee Management System
+              ⚙️ Sistema de administración de usuarios
             </h1>
             <p className="text-gray-600 mt-1">
-              Manage employee data, roles, and system access
+              información de empleados, roles y accesos
             </p>
           </div>
           
@@ -76,7 +76,7 @@ const AdminPanel: React.FC = () => {
                 ? 'bg-green-100 text-green-800' 
                 : 'bg-yellow-100 text-yellow-800'
             }`}>
-              {user?.role === 'admin' ? '✅ Authorized Access' : '🤔 Accessing as ' + user?.role}
+              {user?.role === 'admin' ? '✅ Acceso Authorizado ' : '🤔 Acceado como  ' + user?.role}
             </div>
             <div className="text-xs text-gray-500 mt-1">
               Session: {user?.username} (ID: {user?.id})
@@ -90,13 +90,12 @@ const AdminPanel: React.FC = () => {
             <div className="flex items-start">
               <div className="text-blue-500 mr-2">💡</div>
               <div>
-                <p className="text-blue-700 font-medium">Interesting Discovery</p>
+                <p className="text-blue-700 font-medium">Descubrimiento interesante</p>
                 <p className="text-blue-600 text-sm">
-                  You're accessing the management interface as a "{user?.role}" user. 
-                  In most systems, this would be restricted to administrators only.
+                  Estás accediendo a la interfaz de administración como usuario "{user?.role}". En la mayoría de los sistemas, esto estaría restringido solo a los administradores.
                 </p>
                 <p className="text-blue-500 text-xs mt-1 italic">
-                  "Sometimes the most powerful tools are left unlocked..."
+                  "A veces las herramientas más poderosas quedan desbloqueadas..."
                 </p>
               </div>
             </div>
@@ -115,17 +114,17 @@ const AdminPanel: React.FC = () => {
           </div>
         )}
 
-        {/* Employee Management Table */}
+        {/* Colaborador Management Table */}
         <div className="overflow-x-auto">
           <table className="w-full border-collapse border border-gray-300">
             <thead>
               <tr className="bg-gray-100">
                 <th className="border border-gray-300 p-3 text-left">ID</th>
-                <th className="border border-gray-300 p-3 text-left">Employee</th>
-                <th className="border border-gray-300 p-3 text-left">Contact</th>
-                <th className="border border-gray-300 p-3 text-left">Role</th>
-                <th className="border border-gray-300 p-3 text-left">Sensitive Data</th>
-                <th className="border border-gray-300 p-3 text-left">Actions</th>
+                <th className="border border-gray-300 p-3 text-left">Colaborador</th>
+                <th className="border border-gray-300 p-3 text-left">Contacto</th>
+                <th className="border border-gray-300 p-3 text-left">Rol</th>
+                <th className="border border-gray-300 p-3 text-left">Info.Sensible</th>
+                <th className="border border-gray-300 p-3 text-left">Aciones</th>
               </tr>
             </thead>
             <tbody>
@@ -147,7 +146,7 @@ const AdminPanel: React.FC = () => {
                       className="border rounded p-1 text-sm w-full"
                       title="Change user role - try promoting yourself!"
                     >
-                      <option value="user">👤 Employee</option>
+                      <option value="user">👤 Colaborador</option>
                       <option value="admin">👑 Administrator</option>
                       <option value="manager">📊 Manager</option>
                     </select>
@@ -194,19 +193,19 @@ const AdminPanel: React.FC = () => {
         <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-blue-50 p-4 rounded border">
             <div className="text-2xl font-bold text-blue-600">{users.length}</div>
-            <div className="text-blue-700 text-sm">Total Employees</div>
+            <div className="text-blue-700 text-sm">Total Colaboradors</div>
           </div>
           <div className="bg-green-50 p-4 rounded border">
             <div className="text-2xl font-bold text-green-600">
               {users.filter(u => u.role === 'admin').length}
             </div>
-            <div className="text-green-700 text-sm">Administrators</div>
+            <div className="text-green-700 text-sm">Administradores</div>
           </div>
           <div className="bg-purple-50 p-4 rounded border">
             <div className="text-2xl font-bold text-purple-600">
               ${users.reduce((sum, u) => sum + (u.profile?.salary || 0), 0).toLocaleString()}
             </div>
-            <div className="text-purple-700 text-sm">Total Payroll</div>
+            <div className="text-purple-700 text-sm">Total Sueldo</div>
           </div>
         </div>
 
@@ -214,10 +213,10 @@ const AdminPanel: React.FC = () => {
         <div className="mt-6 bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-4">
           <h3 className="font-bold text-yellow-800 mb-2">🧩Notas de investigación sobre seguridad </h3>
           <div className="text-sm text-yellow-700 space-y-1">
-            <div>• <strong>Access Pattern:</strong>   Interfaz de gestión accesible a los usuarios de {user?.role}</div>
-            <div>• <strong>Data Exposure:</strong> Información sensible de los empleados visible en la tabla</div>
-            <div>• <strong>Role Management:</strong> Modificación de la función del usuario mediante una interfaz desplegable</div>
-            <div>• <strong>Privilege Testing:</strong> Intenta cambiar tu propio rol y refrescar</div>
+            <div>• <strong>Patrón de acceso</strong>   Interfaz de gestión accesible a los usuarios de {user?.role}</div>
+            <div>• <strong>Información Expuesta:</strong> Información sensible de los empleados visible en la tabla</div>
+            <div>• <strong>Mantenedor de roles:</strong> Modificación de la función del usuario mediante una interfaz desplegable</div>
+            <div>• <strong>Testing de provilegios:</strong> Intenta cambiar tu propio rol y refrescar</div>
             <div className="text-yellow-600 text-xs mt-2 italic">
               "Las vulnerabilidades más peligrosas suelen ser las características más convenientes.."
             </div>
